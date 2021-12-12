@@ -49,7 +49,7 @@ class AnalogGaugeWidget(QWidget):
 		])])
 
 		self.value_min = 0
-		self.value_max = 850
+		self.value_max = 1000
 		self.value = self.value_min
 		self.value_offset = 0
 		self.value_needle_snapzone = 0.05
@@ -106,9 +106,9 @@ class AnalogGaugeWidget(QWidget):
 	def rescale_method(self):
 		# print("slotMethod")
 		if self.width() <= self.height():
-			self.widget_diameter = self.width()
+			self.widget_diameter = int(self.width())
 		else:
-			self.widget_diameter = self.height()
+			self.widget_diameter = int(self.height())
 		"""
 		self.change_value_needle_style([QPolygon([
 			QPoint(4, -5),
@@ -124,7 +124,7 @@ class AnalogGaugeWidget(QWidget):
 		self.change_value_needle_style([QPolygon([
 			QPoint(0, 6),
 			QPoint(6, 0),
-			QPoint(0, - self.widget_diameter / 3 * self.needle_scale_factor - 15),
+			QPoint(0, - int(self.widget_diameter / 3*self.needle_scale_factor - 15)),
 			QPoint(-6, 0)
 		])])
 		
@@ -218,7 +218,7 @@ class AnalogGaugeWidget(QWidget):
 				(((self.widget_diameter / 2) - (self.pen.width() / 2)) * self.gauge_color_inner_radius_factor),
 				self.scale_angle_start_value, self.scale_angle_size)
 
-			gauge_rect = QRect(QPoint(0, 0), QSize(self.widget_diameter / 2 - 1, self.widget_diameter - 1))
+			gauge_rect = QRect(QPoint(0, 0), QSize(round(self.widget_diameter/2) - 1, self.widget_diameter - 1))
 			grad = QConicalGradient(QPointF(0, 0), - self.scale_angle_size - self.scale_angle_start_value +
 									self.angle_offset - 1)
 

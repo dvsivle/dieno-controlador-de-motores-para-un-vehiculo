@@ -123,7 +123,7 @@ class Main_App(QMainWindow):
 
         self.frame_2.setFrameShadow(QFrame.Raised)
         self.sensor_M2= AnalogGaugeWidget(self.frame_2)
-        self.sensor_M2.setMinimumSize(QSize(150, 150))
+        self.sensor_M2.setMinimumSize(150, 150)
         self.sensor_M2.value_min = -60
         self.sensor_M2.value_max = 60
         self.sensor_M2.units = "deg"
