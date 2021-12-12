@@ -249,8 +249,8 @@ class AnalogGaugeWidget(QWidget):
 
 		my_painter.rotate(self.scale_angle_start_value - self.angle_offset)
 		steps_size = (float(self.scale_angle_size) / float(self.scala_main_count))
-		scale_line_outer_start = self.widget_diameter/2.4
-		scale_line_lenght = (self.widget_diameter / 2.4) - (self.widget_diameter / 10)
+		scale_line_outer_start = round(self.widget_diameter/2.4)
+		scale_line_lenght = round(self.widget_diameter / 2.4) - (self.widget_diameter / 10)
 		# print(stepszize)
 		for i in range(self.scala_main_count+1):
 			my_painter.drawLine(scale_line_lenght, 0, scale_line_outer_start, 0)
@@ -306,7 +306,7 @@ class AnalogGaugeWidget(QWidget):
 		scale_line_outer_start = self.widget_diameter/2.7
 		scale_line_lenght = (self.widget_diameter / 2.7) - (self.widget_diameter / 20)
 		for i in range((self.scala_main_count * self.scala_subdiv_count)+1):
-			my_painter.drawLine(scale_line_lenght, 0, scale_line_outer_start, 0)
+			my_painter.drawLine(round(scale_line_lenght), 0, round(scale_line_outer_start), 0)
 			my_painter.rotate(steps_size)
 
 	def create_values_text(self):
