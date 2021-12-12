@@ -359,6 +359,8 @@ class Main_App(QMainWindow):
                     self.btn_Conectar.setChecked(False)
                     #self.timer.start()
                     
+
+                    
         else:
             self.serial.close()
             #self.timer.stop()
